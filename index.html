@@ -1,778 +1,1281 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Japa to Canada: The Doctor's Bible</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --navy: #1B3A6B;
-    --navy-dark: #0D2244;
-    --gold: #C8922A;
-    --gold-light: #F5C775;
-    --gold-pale: #FDF3E3;
-    --green: #1E6B3C;
-    --green-light: #E6F4EC;
-    --red: #C0392B;
-    --red-light: #FDECEA;
-    --gray: #F7F7F5;
-    --border: #E5E5E0;
-    --text: #1A1A1A;
-    --text-mid: #555;
-    --text-light: #888;
-    --white: #FFFFFF;
-  }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Japa to Canada: The Doctor's Bible</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --navy: #1B3A6B;
+      --navy-dark: #0D2244;
+      --gold: #C8922A;
+      --gold-light: #F5C775;
+      --gold-pale: #FDF3E3;
+      --green: #1E6B3C;
+      --green-light: #E6F4EC;
+      --red: #C0392B;
+      --red-light: #FDECEA;
+      --gray: #F7F7F5;
+      --border: #E5E5E0;
+      --text: #1A1A1A;
+      --text-mid: #555;
+      --text-light: #888;
+      --white: #FFFFFF;
+    }
 
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-  body {
-    font-family: 'Inter', sans-serif;
-    color: var(--text);
-    background: var(--white);
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-  }
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
 
-  /* ANNOUNCEMENT BAR */
-  .announcement {
-    background: var(--navy-dark);
-    color: var(--gold-light);
-    text-align: center;
-    padding: 10px 16px;
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.3px;
-  }
-  .announcement span { color: #fff; }
+    /* ANNOUNCEMENT BAR */
+    .announcement {
+      background: var(--navy-dark);
+      color: var(--gold-light);
+      text-align: center;
+      padding: 10px 16px;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+    }
 
-  /* HERO */
-  .hero {
-    background: var(--navy);
-    padding: 64px 20px 72px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .hero::before {
-    content: '';
-    position: absolute;
-    top: -60px; right: -60px;
-    width: 300px; height: 300px;
-    border-radius: 50%;
-    background: rgba(200,146,42,0.08);
-  }
-  .hero::after {
-    content: '';
-    position: absolute;
-    bottom: -80px; left: -40px;
-    width: 250px; height: 250px;
-    border-radius: 50%;
-    background: rgba(200,146,42,0.05);
-  }
-  .hero-inner { max-width: 720px; margin: 0 auto; position: relative; z-index: 1; }
-  .hero-badge {
-    display: inline-block;
-    background: var(--gold);
-    color: #fff;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    padding: 6px 16px;
-    border-radius: 40px;
-    margin-bottom: 24px;
-  }
-  .hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(36px, 6vw, 62px);
-    font-weight: 900;
-    color: #fff;
-    line-height: 1.1;
-    margin-bottom: 12px;
-  }
-  .hero h1 .gold { color: var(--gold-light); }
-  .hero-sub {
-    font-size: clamp(16px, 2.5vw, 20px);
-    color: rgba(255,255,255,0.75);
-    max-width: 580px;
-    margin: 0 auto 36px;
-    line-height: 1.6;
-  }
-  .hero-checks {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px 20px;
-    margin-bottom: 40px;
-  }
-  .hero-check {
-    display: flex;
-    align-items: center;
-    gap: 7px;
-    color: rgba(255,255,255,0.9);
-    font-size: 14px;
-    font-weight: 500;
-  }
-  .check-icon {
-    width: 20px; height: 20px;
-    background: var(--gold);
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
-  }
-  .check-icon svg { width: 11px; height: 11px; }
-  .hero-cta-wrap { display: flex; flex-direction: column; align-items: center; gap: 10px; }
-  .btn-primary {
-    display: inline-block;
-    background: var(--gold);
-    color: #fff;
-    font-size: 17px;
-    font-weight: 600;
-    padding: 18px 48px;
-    border-radius: 6px;
-    text-decoration: none;
-    letter-spacing: 0.2px;
-    transition: background 0.2s;
-    border: none; cursor: pointer;
-  }
-  .btn-primary:hover { background: #b07d22; }
-  .btn-note { font-size: 12px; color: rgba(255,255,255,0.5); }
+    .announcement span {
+      color: #fff;
+    }
 
-  /* SECTION WRAPPER */
-  .section { padding: 64px 20px; }
-  .section-inner { max-width: 760px; margin: 0 auto; }
-  .section-alt { background: var(--gray); }
-  .section-navy { background: var(--navy); }
+    /* HERO */
+    .hero {
+      background: var(--navy);
+      padding: 64px 20px 72px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
 
-  .section-label {
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 8px;
-  }
-  .section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(26px, 4vw, 38px);
-    font-weight: 700;
-    color: var(--navy);
-    line-height: 1.2;
-    margin-bottom: 16px;
-  }
-  .section-title-white { color: #fff; }
-  .section-body {
-    font-size: 16px;
-    color: var(--text-mid);
-    line-height: 1.8;
-    margin-bottom: 16px;
-  }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: rgba(200, 146, 42, 0.08);
+    }
 
-  /* PAIN SECTION */
-  .pain-list { list-style: none; margin: 24px 0; }
-  .pain-item {
-    display: flex;
-    gap: 14px;
-    align-items: flex-start;
-    padding: 14px 0;
-    border-bottom: 1px solid var(--border);
-    font-size: 15px;
-    color: var(--text-mid);
-    line-height: 1.6;
-  }
-  .pain-item:last-child { border-bottom: none; }
-  .pain-dot {
-    width: 8px; height: 8px;
-    background: var(--red);
-    border-radius: 50%;
-    flex-shrink: 0;
-    margin-top: 7px;
-  }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -80px;
+      left: -40px;
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      background: rgba(200, 146, 42, 0.05);
+    }
 
-  /* STATS ROW */
-  .stats-row {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    margin: 32px 0;
-  }
-  .stat-card {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 20px 16px;
-    text-align: center;
-  }
-  .stat-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 28px;
-    font-weight: 700;
-    color: var(--navy);
-    display: block;
-    margin-bottom: 6px;
-  }
-  .stat-desc { font-size: 12px; color: var(--text-light); line-height: 1.4; }
+    .hero-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
 
-  /* WHAT'S INSIDE */
-  .chapters { margin-top: 32px; }
-  .chapter-item {
-    display: flex;
-    gap: 16px;
-    padding: 18px 0;
-    border-bottom: 1px solid var(--border);
-    align-items: flex-start;
-  }
-  .chapter-item:last-child { border-bottom: none; }
-  .chapter-num {
-    width: 36px; height: 36px;
-    background: var(--navy);
-    color: #fff;
-    border-radius: 8px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 13px;
-    font-weight: 600;
-    flex-shrink: 0;
-  }
-  .chapter-content {}
-  .chapter-title {
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 4px;
-  }
-  .chapter-desc { font-size: 13px; color: var(--text-mid); line-height: 1.5; }
-  .chapter-badge {
-    display: inline-block;
-    background: var(--gold-pale);
-    color: var(--gold);
-    font-size: 10px;
-    font-weight: 600;
-    padding: 2px 8px;
-    border-radius: 20px;
-    margin-left: 6px;
-    vertical-align: middle;
-  }
+    .hero-badge {
+      display: inline-block;
+      background: var(--gold);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 40px;
+      margin-bottom: 24px;
+    }
 
-  /* COMPARISON TABLE */
-  .compare-table { width: 100%; border-collapse: collapse; margin-top: 24px; font-size: 14px; }
-  .compare-table th {
-    background: var(--navy);
-    color: #fff;
-    padding: 14px 16px;
-    text-align: left;
-    font-size: 13px;
-    font-weight: 600;
-  }
-  .compare-table th:first-child { border-radius: 8px 0 0 0; }
-  .compare-table th:last-child { border-radius: 0 8px 0 0; }
-  .compare-table td { padding: 13px 16px; border-bottom: 1px solid var(--border); color: var(--text-mid); }
-  .compare-table tr:last-child td { border-bottom: none; }
-  .compare-table tr:nth-child(even) td { background: var(--gray); }
-  .compare-table .bad { color: var(--red); font-weight: 600; }
-  .compare-table .good { color: var(--green); font-weight: 600; }
-  .compare-table .highlight td { background: var(--gold-pale) !important; font-weight: 600; }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(36px, 6vw, 62px);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
 
-  /* TESTIMONIALS */
-  .testimonials { display: flex; flex-direction: column; gap: 16px; margin-top: 32px; }
-  .tcard {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-left: 4px solid var(--gold);
-    border-radius: 0 10px 10px 0;
-    padding: 20px 20px 20px 20px;
-  }
-  .tcard-text {
-    font-size: 15px;
-    color: var(--text);
-    line-height: 1.7;
-    margin-bottom: 14px;
-    font-style: italic;
-  }
-  .tcard-author { display: flex; align-items: center; gap: 10px; }
-  .tcard-avatar {
-    width: 36px; height: 36px;
-    border-radius: 50%;
-    background: var(--navy);
-    color: #fff;
-    font-size: 12px;
-    font-weight: 600;
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
-  }
-  .tcard-name { font-size: 13px; font-weight: 600; color: var(--text); }
-  .tcard-role { font-size: 12px; color: var(--text-light); }
-  .stars { color: var(--gold); font-size: 13px; margin-bottom: 8px; }
+    .hero h1 .gold {
+      color: var(--gold-light);
+    }
 
-  /* INCOME TABLE */
-  .income-table { width: 100%; border-collapse: collapse; margin-top: 24px; font-size: 14px; }
-  .income-table th { background: var(--navy); color: #fff; padding: 12px 14px; text-align: left; font-size: 13px; }
-  .income-table td { padding: 12px 14px; border-bottom: 1px solid var(--border); }
-  .income-table tr:nth-child(even) td { background: rgba(27,58,107,0.03); }
-  .income-table .income-val { color: var(--green); font-weight: 600; }
+    .hero-sub {
+      font-size: clamp(16px, 2.5vw, 20px);
+      color: rgba(255, 255, 255, 0.75);
+      max-width: 580px;
+      margin: 0 auto 36px;
+      line-height: 1.6;
+    }
 
-  /* FAQ */
-  .faq { margin-top: 32px; }
-  .faq-item {
-    border-bottom: 1px solid var(--border);
-    padding: 18px 0;
-  }
-  .faq-q { font-size: 15px; font-weight: 600; color: var(--navy); margin-bottom: 8px; }
-  .faq-a { font-size: 14px; color: var(--text-mid); line-height: 1.7; }
+    .hero-checks {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px 20px;
+      margin-bottom: 40px;
+    }
 
-  /* GUARANTEE */
-  .guarantee {
-    background: var(--green-light);
-    border: 1px solid #97C459;
-    border-radius: 12px;
-    padding: 28px;
-    display: flex;
-    gap: 20px;
-    align-items: flex-start;
-    margin-top: 32px;
-  }
-  .guarantee-icon {
-    width: 48px; height: 48px;
-    background: var(--green);
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
-  }
-  .guarantee-icon svg { width: 24px; height: 24px; }
-  .guarantee-title { font-size: 16px; font-weight: 700; color: var(--green); margin-bottom: 6px; }
-  .guarantee-text { font-size: 14px; color: #2d5a3d; line-height: 1.7; }
+    .hero-check {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 14px;
+      font-weight: 500;
+    }
 
-  /* FINAL CTA */
-  .final-cta {
-    background: var(--navy);
-    padding: 72px 20px;
-    text-align: center;
-  }
-  .final-cta-inner { max-width: 560px; margin: 0 auto; }
-  .final-cta h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(28px, 4vw, 42px);
-    color: #fff;
-    font-weight: 700;
-    margin-bottom: 12px;
-    line-height: 1.2;
-  }
-  .final-cta h2 .gold { color: var(--gold-light); }
-  .final-cta p { font-size: 16px; color: rgba(255,255,255,0.65); margin-bottom: 32px; line-height: 1.7; }
-  .price-block { margin-bottom: 28px; }
-  .price-was { font-size: 15px; color: rgba(255,255,255,0.4); text-decoration: line-through; margin-bottom: 4px; }
-  .price-now { font-size: 52px; font-family: 'Playfair Display', serif; font-weight: 700; color: var(--gold-light); line-height: 1; margin-bottom: 6px; }
-  .price-desc { font-size: 13px; color: rgba(255,255,255,0.5); }
-  .cta-features { list-style: none; margin: 0 0 28px; text-align: left; display: inline-block; }
-  .cta-feature {
-    display: flex; align-items: center; gap: 10px;
-    font-size: 14px; color: rgba(255,255,255,0.8);
-    padding: 5px 0;
-  }
-  .cta-feature-dot { width: 6px; height: 6px; background: var(--gold); border-radius: 50%; flex-shrink: 0; }
-  .urgency-bar {
-    background: rgba(200,146,42,0.15);
-    border: 1px solid rgba(200,146,42,0.3);
-    border-radius: 8px;
-    padding: 12px 16px;
-    margin-bottom: 24px;
-    font-size: 13px;
-    color: var(--gold-light);
-    font-weight: 500;
-  }
+    .check-icon {
+      width: 20px;
+      height: 20px;
+      background: var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
 
-  /* FOOTER */
-  footer {
-    background: var(--navy-dark);
-    padding: 24px 20px;
-    text-align: center;
-    font-size: 12px;
-    color: rgba(255,255,255,0.35);
-    line-height: 1.8;
-  }
+    .check-icon svg {
+      width: 11px;
+      height: 11px;
+    }
 
-  /* STICKY MOBILE CTA */
-  .sticky-cta {
-    position: fixed;
-    bottom: 0; left: 0; right: 0;
-    background: var(--navy-dark);
-    padding: 12px 16px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    z-index: 100;
-    border-top: 2px solid var(--gold);
-  }
-  .sticky-cta-text { font-size: 13px; color: rgba(255,255,255,0.8); line-height: 1.3; }
-  .sticky-cta-text strong { color: var(--gold-light); display: block; font-size: 15px; }
-  .btn-sticky {
-    background: var(--gold);
-    color: #fff;
-    font-size: 14px;
-    font-weight: 600;
-    padding: 12px 20px;
-    border-radius: 6px;
-    text-decoration: none;
-    white-space: nowrap;
-    flex-shrink: 0;
-  }
+    .hero-cta-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
 
-  @media (max-width: 600px) {
-    .stats-row { grid-template-columns: 1fr 1fr; }
-    .stats-row .stat-card:last-child { grid-column: 1 / -1; }
-    .guarantee { flex-direction: column; }
-    body { padding-bottom: 72px; }
-  }
-</style>
+    .btn-primary {
+      display: inline-block;
+      background: var(--gold);
+      color: #fff;
+      font-size: 17px;
+      font-weight: 600;
+      padding: 18px 48px;
+      border-radius: 6px;
+      text-decoration: none;
+      letter-spacing: 0.2px;
+      transition: background 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      background: #b07d22;
+    }
+
+    .btn-note {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    /* SECTION WRAPPER */
+    .section {
+      padding: 64px 20px;
+    }
+
+    .section-inner {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .section-alt {
+      background: var(--gray);
+    }
+
+    .section-navy {
+      background: var(--navy);
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(26px, 4vw, 38px);
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .section-title-white {
+      color: #fff;
+    }
+
+    .section-body {
+      font-size: 16px;
+      color: var(--text-mid);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+
+    /* PAIN SECTION */
+    .pain-list {
+      list-style: none;
+      margin: 24px 0;
+    }
+
+    .pain-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 15px;
+      color: var(--text-mid);
+      line-height: 1.6;
+    }
+
+    .pain-item:last-child {
+      border-bottom: none;
+    }
+
+    .pain-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--red);
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 7px;
+    }
+
+    /* STATS ROW */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin: 32px 0;
+    }
+
+    .stat-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px 16px;
+      text-align: center;
+    }
+
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--navy);
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .stat-desc {
+      font-size: 12px;
+      color: var(--text-light);
+      line-height: 1.4;
+    }
+
+    /* WHAT'S INSIDE */
+    .chapters {
+      margin-top: 32px;
+    }
+
+    .chapter-item {
+      display: flex;
+      gap: 16px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--border);
+      align-items: flex-start;
+    }
+
+    .chapter-item:last-child {
+      border-bottom: none;
+    }
+
+    .chapter-num {
+      width: 36px;
+      height: 36px;
+      background: var(--navy);
+      color: #fff;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+
+    .chapter-content {}
+
+    .chapter-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .chapter-desc {
+      font-size: 13px;
+      color: var(--text-mid);
+      line-height: 1.5;
+    }
+
+    .chapter-badge {
+      display: inline-block;
+      background: var(--gold-pale);
+      color: var(--gold);
+      font-size: 10px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 20px;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+
+    /* COMPARISON TABLE */
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 24px;
+      font-size: 14px;
+    }
+
+    .compare-table th {
+      background: var(--navy);
+      color: #fff;
+      padding: 14px 16px;
+      text-align: left;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .compare-table th:first-child {
+      border-radius: 8px 0 0 0;
+    }
+
+    .compare-table th:last-child {
+      border-radius: 0 8px 0 0;
+    }
+
+    .compare-table td {
+      padding: 13px 16px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-mid);
+    }
+
+    .compare-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .compare-table tr:nth-child(even) td {
+      background: var(--gray);
+    }
+
+    .compare-table .bad {
+      color: var(--red);
+      font-weight: 600;
+    }
+
+    .compare-table .good {
+      color: var(--green);
+      font-weight: 600;
+    }
+
+    .compare-table .highlight td {
+      background: var(--gold-pale) !important;
+      font-weight: 600;
+    }
+
+    /* TESTIMONIALS */
+    .testimonials {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    .tcard {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--gold);
+      border-radius: 0 10px 10px 0;
+      padding: 20px 20px 20px 20px;
+    }
+
+    .tcard-text {
+      font-size: 15px;
+      color: var(--text);
+      line-height: 1.7;
+      margin-bottom: 14px;
+      font-style: italic;
+    }
+
+    .tcard-author {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .tcard-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--navy);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .tcard-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .tcard-role {
+      font-size: 12px;
+      color: var(--text-light);
+    }
+
+    .stars {
+      color: var(--gold);
+      font-size: 13px;
+      margin-bottom: 8px;
+    }
+
+    /* INCOME TABLE */
+    .income-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 24px;
+      font-size: 14px;
+    }
+
+    .income-table th {
+      background: var(--navy);
+      color: #fff;
+      padding: 12px 14px;
+      text-align: left;
+      font-size: 13px;
+    }
+
+    .income-table td {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .income-table tr:nth-child(even) td {
+      background: rgba(27, 58, 107, 0.03);
+    }
+
+    .income-table .income-val {
+      color: var(--green);
+      font-weight: 600;
+    }
+
+    /* FAQ */
+    .faq {
+      margin-top: 32px;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+      padding: 18px 0;
+    }
+
+    .faq-q {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .faq-a {
+      font-size: 14px;
+      color: var(--text-mid);
+      line-height: 1.7;
+    }
+
+    /* GUARANTEE */
+    .guarantee {
+      background: var(--green-light);
+      border: 1px solid #97C459;
+      border-radius: 12px;
+      padding: 28px;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      margin-top: 32px;
+    }
+
+    .guarantee-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--green);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .guarantee-icon svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .guarantee-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--green);
+      margin-bottom: 6px;
+    }
+
+    .guarantee-text {
+      font-size: 14px;
+      color: #2d5a3d;
+      line-height: 1.7;
+    }
+
+    /* FINAL CTA */
+    .final-cta {
+      background: var(--navy);
+      padding: 72px 20px;
+      text-align: center;
+    }
+
+    .final-cta-inner {
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .final-cta h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 4vw, 42px);
+      color: #fff;
+      font-weight: 700;
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+
+    .final-cta h2 .gold {
+      color: var(--gold-light);
+    }
+
+    .final-cta p {
+      font-size: 16px;
+      color: rgba(255, 255, 255, 0.65);
+      margin-bottom: 32px;
+      line-height: 1.7;
+    }
+
+    .price-block {
+      margin-bottom: 28px;
+    }
+
+    .price-was {
+      font-size: 15px;
+      color: rgba(255, 255, 255, 0.4);
+      text-decoration: line-through;
+      margin-bottom: 4px;
+    }
+
+    .price-now {
+      font-size: 52px;
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      color: var(--gold-light);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .price-desc {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .cta-features {
+      list-style: none;
+      margin: 0 0 28px;
+      text-align: left;
+      display: inline-block;
+    }
+
+    .cta-feature {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.8);
+      padding: 5px 0;
+    }
+
+    .cta-feature-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--gold);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .urgency-bar {
+      background: rgba(200, 146, 42, 0.15);
+      border: 1px solid rgba(200, 146, 42, 0.3);
+      border-radius: 8px;
+      padding: 12px 16px;
+      margin-bottom: 24px;
+      font-size: 13px;
+      color: var(--gold-light);
+      font-weight: 500;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--navy-dark);
+      padding: 24px 20px;
+      text-align: center;
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.35);
+      line-height: 1.8;
+    }
+
+    /* STICKY MOBILE CTA */
+    .sticky-cta {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--navy-dark);
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      z-index: 100;
+      border-top: 2px solid var(--gold);
+    }
+
+    .sticky-cta-text {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.3;
+    }
+
+    .sticky-cta-text strong {
+      color: var(--gold-light);
+      display: block;
+      font-size: 15px;
+    }
+
+    .btn-sticky {
+      background: var(--gold);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 12px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 600px) {
+      .stats-row {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .stats-row .stat-card:last-child {
+        grid-column: 1 / -1;
+      }
+
+      .guarantee {
+        flex-direction: column;
+      }
+
+      body {
+        padding-bottom: 72px;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<!-- ANNOUNCEMENT BAR -->
-<div class="announcement">
-  <span>⚡ Launch offer:</span> Only 37 of 100 copies remaining at ₦50,000
-</div>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-inner">
-    <div class="hero-badge">March 2026 Edition — Updated</div>
-    <h1>The Nigerian Doctor's<br>Complete Guide to<br><span class="gold">Moving to Canada</span></h1>
-    <p class="hero-sub">Not another vague overview. A step-by-step execution blueprint covering all 5 pathways, done-for-you templates, and everything an immigration consultant charges ₦400,000+ to tell you.</p>
-    <div class="hero-checks">
-      <div class="hero-check"><div class="check-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>All ages</div>
-      <div class="hero-check"><div class="check-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>All specialties</div>
-      <div class="hero-check"><div class="check-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>All experience levels</div>
-      <div class="hero-check"><div class="check-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Travel with your family</div>
-      <div class="hero-check"><div class="check-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Citizenship in 3 years</div>
-    </div>
-    <div class="hero-cta-wrap">
-      <a href="https://selar.co/YOUR-PRODUCT-LINK" class="btn-primary">Get the Doctor's Bible — ₦50,000 →</a>
-      <span class="btn-note">Secure payment · Instant download · 7-day refund guarantee</span>
-    </div>
+  <!-- ANNOUNCEMENT BAR -->
+  <div class="announcement">
+    <span>⚡ Launch offer:</span> Only 37 of 100 copies remaining at ₦5,500
   </div>
-</section>
 
-<!-- PAIN SECTION -->
-<section class="section">
-  <div class="section-inner">
-    <div class="section-label">Be honest with yourself</div>
-    <h2 class="section-title">You already want to go. Something keeps stopping you.</h2>
-    <p class="section-body">You've watched the YouTube videos. You've read the blog posts. You've maybe even spoken to an immigration consultant who quoted you ₦300,000–500,000 just to "start the process." And yet here you are — still in Nigeria, still unsure.</p>
-    <p class="section-body">Here is what is actually stopping most Nigerian doctors:</p>
-    <ul class="pain-list">
-      <li class="pain-item"><div class="pain-dot"></div><div>You don't know which of the 5 pathways actually fits your age, specialty, and experience level — so you do nothing instead of the wrong thing</div></li>
-      <li class="pain-item"><div class="pain-dot"></div><div>You don't know your exact CRS score or how close you are to qualifying — so the whole system feels like a lottery</div></li>
-      <li class="pain-item"><div class="pain-dot"></div><div>You don't know what your reference letter must specifically say for IRCC to accept your NOC code — one missing sentence can kill a months-long application</div></li>
-      <li class="pain-item"><div class="pain-dot"></div><div>You don't know the real total cost — so you keep saving "a bit more" without a clear target</div></li>
-      <li class="pain-item"><div class="pain-dot"></div><div>Every year you wait, you silently lose age points in the CRS system you can never recover</div></li>
-    </ul>
-    <p class="section-body" style="font-weight:600;color:var(--navy);">The Doctor's Bible removes every single one of these blockers. In one document.</p>
-  </div>
-</section>
-
-<!-- SOCIAL PROOF — REAL NIGERIANS IN CANADA -->
-<section class="section section-alt">
-  <div class="section-inner">
-    <div class="section-label">This is not new</div>
-    <h2 class="section-title">Nigerian doctors have been choosing Canada for over 50 years.</h2>
-    <p class="section-body">The question is not whether it is possible. Hundreds of Nigerian doctors are licensed and practicing in Canada right now. The question is whether you will be next.</p>
-
-    <div style="margin:32px 0;border-radius:12px;overflow:hidden;border:1px solid var(--border);">
-      <img src="images/arrival-1970.jpg" alt="Dr. Fidel Ezemenari welcoming his family to Toronto, 1970" style="width:100%;display:block;max-height:480px;object-fit:cover;object-position:top;">
-      <div style="padding:14px 18px;background:var(--navy-dark);">
-        <p style="font-size:13px;color:rgba(255,255,255,0.7);line-height:1.6;"><strong style="color:var(--gold-light);">1970.</strong> Nigerian doctor Dr. Fidel Ezemenari welcoming his family to Toronto after emigrating to Canada. <span style="color:rgba(255,255,255,0.45);">Credit: Toronto Star</span></p>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-badge">March 2026 Edition — Updated</div>
+      <h1>The Nigerian Doctor's<br>Complete Guide to<br><span class="gold">Moving to Canada</span></h1>
+      <p class="hero-sub">Not another vague overview. A step-by-step execution blueprint covering all 5 pathways,
+        done-for-you templates, and everything an immigration consultant charges ₦400,000+ to tell you.</p>
+      <div class="hero-checks">
+        <div class="hero-check">
+          <div class="check-icon"><svg viewBox="0 0 12 12" fill="none">
+              <polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg></div>All ages
+        </div>
+        <div class="hero-check">
+          <div class="check-icon"><svg viewBox="0 0 12 12" fill="none">
+              <polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg></div>All specialties
+        </div>
+        <div class="hero-check">
+          <div class="check-icon"><svg viewBox="0 0 12 12" fill="none">
+              <polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg></div>All experience levels
+        </div>
+        <div class="hero-check">
+          <div class="check-icon"><svg viewBox="0 0 12 12" fill="none">
+              <polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg></div>Travel with your family
+        </div>
+        <div class="hero-check">
+          <div class="check-icon"><svg viewBox="0 0 12 12" fill="none">
+              <polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg></div>Citizenship in 3 years
+        </div>
+      </div>
+      <div class="hero-cta-wrap">
+        <a href="https://selar.com/036xj77678" class="btn-primary">Get the Doctor's Bible — ₦5,500 →</a>
+        <span class="btn-note">Secure payment · Instant download · 7-day refund guarantee</span>
       </div>
     </div>
+  </section>
 
-    <p class="section-body" style="font-weight:600;color:var(--navy);">And here is what Nigerian doctors are achieving in Canada today:</p>
+  <!-- PAIN SECTION -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-label">Be honest with yourself</div>
+      <h2 class="section-title">You already want to go. Something keeps stopping you.</h2>
+      <p class="section-body">You've watched the YouTube videos. You've read the blog posts. You've maybe even spoken to
+        an immigration consultant who quoted you ₦300,000–500,000 just to "start the process." And yet here you are —
+        still in Nigeria, still unsure.</p>
+      <p class="section-body">Here is what is actually stopping most Nigerian doctors:</p>
+      <ul class="pain-list">
+        <li class="pain-item">
+          <div class="pain-dot"></div>
+          <div>You don't know which of the 5 pathways actually fits your age, specialty, and experience level — so you
+            do nothing instead of the wrong thing</div>
+        </li>
+        <li class="pain-item">
+          <div class="pain-dot"></div>
+          <div>You don't know your exact CRS score or how close you are to qualifying — so the whole system feels like a
+            lottery</div>
+        </li>
+        <li class="pain-item">
+          <div class="pain-dot"></div>
+          <div>You don't know what your reference letter must specifically say for IRCC to accept your NOC code — one
+            missing sentence can kill a months-long application</div>
+        </li>
+        <li class="pain-item">
+          <div class="pain-dot"></div>
+          <div>You don't know the real total cost — so you keep saving "a bit more" without a clear target</div>
+        </li>
+        <li class="pain-item">
+          <div class="pain-dot"></div>
+          <div>Every year you wait, you silently lose age points in the CRS system you can never recover</div>
+        </li>
+      </ul>
+      <p class="section-body" style="font-weight:600;color:var(--navy);">The Doctor's Bible removes every single one of
+        these blockers. In one document.</p>
+    </div>
+  </section>
 
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px;">
+  <!-- SOCIAL PROOF — REAL NIGERIANS IN CANADA -->
+  <section class="section section-alt">
+    <div class="section-inner">
+      <div class="section-label">This is not new</div>
+      <h2 class="section-title">Nigerian doctors have been choosing Canada for over 50 years.</h2>
+      <p class="section-body">The question is not whether it is possible. Hundreds of Nigerian doctors are licensed and
+        practicing in Canada right now. The question is whether you will be next.</p>
 
-      <div style="border-radius:12px;overflow:hidden;border:1px solid var(--border);grid-column:1/-1;">
-        <img src="images/dr-bolu-cma.png" alt="Dr. Bolu Ogunyemi — first Black President of Canadian Medical Association" style="width:100%;display:block;max-height:320px;object-fit:cover;object-position:top;">
-        <div style="padding:14px 16px;background:#fff;border-top:3px solid var(--gold);">
-          <p style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:4px;">Dr. Bolu Ogunyemi</p>
-          <p style="font-size:13px;color:var(--text-mid);line-height:1.5;">Nigerian-born. First Black President-Elect of the Canadian Medical Association in its <strong>158-year history.</strong></p>
+      <div style="margin:32px 0;border-radius:12px;overflow:hidden;border:1px solid var(--border);">
+        <img src="images/arrival-1970.jpg" alt="Dr. Fidel Ezemenari welcoming his family to Toronto, 1970"
+          style="width:100%;display:block;max-height:480px;object-fit:cover;object-position:top;">
+        <div style="padding:14px 18px;background:var(--navy-dark);">
+          <p style="font-size:13px;color:rgba(255,255,255,0.7);line-height:1.6;"><strong
+              style="color:var(--gold-light);">1970.</strong> Nigerian doctor Dr. Fidel Ezemenari welcoming his family
+            to Toronto after emigrating to Canada. <span style="color:rgba(255,255,255,0.45);">Credit: Toronto
+              Star</span></p>
         </div>
       </div>
 
-      <div style="border-radius:12px;overflow:hidden;border:1px solid var(--border);">
-        <img src="images/dr-lola-surgery.png" alt="Dr. Lola Fayanju — Chair of Surgery" style="width:100%;display:block;height:220px;object-fit:cover;object-position:top;">
-        <div style="padding:12px 14px;background:#fff;border-top:3px solid var(--gold);">
-          <p style="font-size:12px;font-weight:700;color:var(--navy);margin-bottom:3px;">Dr. Lola Fayanju</p>
-          <p style="font-size:12px;color:var(--text-mid);line-height:1.5;">Appointed <strong>Chair of Surgery</strong> at Queen's University & Kingston Health Sciences Centre, Canada.</p>
+      <p class="section-body" style="font-weight:600;color:var(--navy);">And here is what Nigerian doctors are achieving
+        in Canada today:</p>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px;">
+
+        <div style="border-radius:12px;overflow:hidden;border:1px solid var(--border);grid-column:1/-1;">
+          <img src="images/dr-bolu-cma.png"
+            alt="Dr. Bolu Ogunyemi — first Black President of Canadian Medical Association"
+            style="width:100%;display:block;max-height:320px;object-fit:cover;object-position:top;">
+          <div style="padding:14px 16px;background:#fff;border-top:3px solid var(--gold);">
+            <p style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:4px;">Dr. Bolu Ogunyemi</p>
+            <p style="font-size:13px;color:var(--text-mid);line-height:1.5;">Nigerian-born. First Black President-Elect
+              of the Canadian Medical Association in its <strong>158-year history.</strong></p>
+          </div>
         </div>
+
+        <div style="border-radius:12px;overflow:hidden;border:1px solid var(--border);">
+          <img src="images/dr-lola-surgery.png" alt="Dr. Lola Fayanju — Chair of Surgery"
+            style="width:100%;display:block;height:220px;object-fit:cover;object-position:top;">
+          <div style="padding:12px 14px;background:#fff;border-top:3px solid var(--gold);">
+            <p style="font-size:12px;font-weight:700;color:var(--navy);margin-bottom:3px;">Dr. Lola Fayanju</p>
+            <p style="font-size:12px;color:var(--text-mid);line-height:1.5;">Appointed <strong>Chair of Surgery</strong>
+              at Queen's University & Kingston Health Sciences Centre, Canada.</p>
+          </div>
+        </div>
+
+        <div style="border-radius:12px;overflow:hidden;border:1px solid var(--border);">
+          <img src="images/dr-stephen-bc.png" alt="Dr. Stephen Osei-Osafo in BC"
+            style="width:100%;display:block;height:220px;object-fit:cover;object-position:top;">
+          <div style="padding:12px 14px;background:#fff;border-top:3px solid var(--gold);">
+            <p style="font-size:12px;font-weight:700;color:var(--navy);margin-bottom:3px;">Dr. Stephen Osei-Osafo</p>
+            <p style="font-size:12px;color:var(--text-mid);line-height:1.5;">Left the UK for BC. Now tells his
+              colleagues to come to Canada <strong>"every single day."</strong></p>
+          </div>
+        </div>
+
+        <div style="border-radius:12px;overflow:hidden;border:1px solid var(--border);grid-column:1/-1;">
+          <img src="images/dr-yakubu-montreal.png" alt="Dr. Yakubu Sani Wudil arriving in Montreal"
+            style="width:100%;display:block;max-height:300px;object-fit:cover;object-position:top;">
+          <div style="padding:14px 16px;background:#fff;border-top:3px solid var(--gold);">
+            <p style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:4px;">Dr. Yakubu Sani Wudil —
+              Montreal, May 2025</p>
+            <p style="font-size:13px;color:var(--text-mid);line-height:1.5;font-style:italic;">"Alhamdulillah! Safely
+              arrived in Montreal city, Canada. Looking forward to the rewarding experience."</p>
+          </div>
+        </div>
+
       </div>
 
-      <div style="border-radius:12px;overflow:hidden;border:1px solid var(--border);">
-        <img src="images/dr-stephen-bc.png" alt="Dr. Stephen Osei-Osafo in BC" style="width:100%;display:block;height:220px;object-fit:cover;object-position:top;">
-        <div style="padding:12px 14px;background:#fff;border-top:3px solid var(--gold);">
-          <p style="font-size:12px;font-weight:700;color:var(--navy);margin-bottom:3px;">Dr. Stephen Osei-Osafo</p>
-          <p style="font-size:12px;color:var(--text-mid);line-height:1.5;">Left the UK for BC. Now tells his colleagues to come to Canada <strong>"every single day."</strong></p>
-        </div>
-      </div>
-
-      <div style="border-radius:12px;overflow:hidden;border:1px solid var(--border);grid-column:1/-1;">
-        <img src="images/dr-yakubu-montreal.png" alt="Dr. Yakubu Sani Wudil arriving in Montreal" style="width:100%;display:block;max-height:300px;object-fit:cover;object-position:top;">
-        <div style="padding:14px 16px;background:#fff;border-top:3px solid var(--gold);">
-          <p style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:4px;">Dr. Yakubu Sani Wudil — Montreal, May 2025</p>
-          <p style="font-size:13px;color:var(--text-mid);line-height:1.5;font-style:italic;">"Alhamdulillah! Safely arrived in Montreal city, Canada. Looking forward to the rewarding experience."</p>
-        </div>
+      <!-- GIF placeholder -->
+      <div
+        style="margin-top:16px;background:var(--gold-pale);border:1px dashed var(--gold);border-radius:10px;padding:16px 18px;">
+        <p style="font-size:13px;color:var(--gold);font-weight:600;margin-bottom:4px;">[ Your visa/PR unboxing GIFs go
+          here ]</p>
+        <p style="font-size:12px;color:#7a5a1a;line-height:1.6;">Add GIF files to the <code
+            style="background:rgba(0,0,0,0.07);padding:1px 5px;border-radius:3px;">images/</code> folder, then replace
+          this block with <code
+            style="background:rgba(0,0,0,0.07);padding:1px 5px;border-radius:3px;">&lt;img src="images/unboxing1.gif" style="width:100%;border-radius:10px;"&gt;</code>
+        </p>
       </div>
 
     </div>
+  </section>
 
-    <!-- GIF placeholder -->
-    <div style="margin-top:16px;background:var(--gold-pale);border:1px dashed var(--gold);border-radius:10px;padding:16px 18px;">
-      <p style="font-size:13px;color:var(--gold);font-weight:600;margin-bottom:4px;">[ Your visa/PR unboxing GIFs go here ]</p>
-      <p style="font-size:12px;color:#7a5a1a;line-height:1.6;">Add GIF files to the <code style="background:rgba(0,0,0,0.07);padding:1px 5px;border-radius:3px;">images/</code> folder, then replace this block with <code style="background:rgba(0,0,0,0.07);padding:1px 5px;border-radius:3px;">&lt;img src="images/unboxing1.gif" style="width:100%;border-radius:10px;"&gt;</code></p>
+  <!-- STATS -->
+  <section class="section section-alt">
+    <div class="section-inner">
+      <div class="section-label">Why Canada, why now</div>
+      <h2 class="section-title">Canada is not just open. They are desperate.</h2>
+      <p class="section-body">The UK is hostile to immigrants right now. The US is politically unstable. Canada has
+        quietly built the most doctor-friendly immigration system in the world — because they have no choice.</p>
+      <div class="stats-row">
+        <div class="stat-card"><span class="stat-num">5.7M</span><span class="stat-desc">Canadians with no family
+            doctor</span></div>
+        <div class="stat-card"><span class="stat-num">CRS 169</span><span class="stat-desc">Record-low physician draw,
+            Feb 2026</span></div>
+        <div class="stat-card"><span class="stat-num">5</span><span class="stat-desc">Separate immigration pathways
+            built for doctors</span></div>
+      </div>
+      <p class="section-body">On February 19, 2026, Canada issued permanent residence to physicians at a CRS score of
+        169 — the lowest in Express Entry history. Any doctor with just 12 months of Canadian work experience is now
+        virtually guaranteed permanent residence. This window did not exist two years ago. It exists today.</p>
+
+      <h3 style="font-size:18px;font-weight:600;color:var(--navy);margin:32px 0 12px;">What you will actually earn</h3>
+      <table class="income-table">
+        <thead>
+          <tr>
+            <th>Specialty</th>
+            <th>Gross Income</th>
+            <th>Take-Home (after tax)</th>
+            <th>In Naira/year</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Family Physician</td>
+            <td>CAD 280,000</td>
+            <td class="income-val">CAD 185,000–200,000</td>
+            <td class="income-val">~₦185–200 million</td>
+          </tr>
+          <tr>
+            <td>Internist / Pediatrician</td>
+            <td>CAD 360,000</td>
+            <td class="income-val">CAD 240,000–250,000</td>
+            <td class="income-val">~₦240–250 million</td>
+          </tr>
+          <tr>
+            <td>General Surgeon</td>
+            <td>CAD 450,000</td>
+            <td class="income-val">CAD 295,000–310,000</td>
+            <td class="income-val">~₦295–310 million</td>
+          </tr>
+          <tr>
+            <td>Anesthesiologist / Radiologist</td>
+            <td>CAD 500,000+</td>
+            <td class="income-val">CAD 320,000–340,000</td>
+            <td class="income-val">~₦320–340 million</td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="font-size:12px;color:var(--text-light);margin-top:10px;">After malpractice insurance, provincial taxes,
+        and overhead. Based on March 2026 exchange rates.</p>
     </div>
+  </section>
 
-  </div>
-</section>
-
-<!-- STATS -->
-<section class="section section-alt">
-  <div class="section-inner">
-    <div class="section-label">Why Canada, why now</div>
-    <h2 class="section-title">Canada is not just open. They are desperate.</h2>
-    <p class="section-body">The UK is hostile to immigrants right now. The US is politically unstable. Canada has quietly built the most doctor-friendly immigration system in the world — because they have no choice.</p>
-    <div class="stats-row">
-      <div class="stat-card"><span class="stat-num">5.7M</span><span class="stat-desc">Canadians with no family doctor</span></div>
-      <div class="stat-card"><span class="stat-num">CRS 169</span><span class="stat-desc">Record-low physician draw, Feb 2026</span></div>
-      <div class="stat-card"><span class="stat-num">5</span><span class="stat-desc">Separate immigration pathways built for doctors</span></div>
-    </div>
-    <p class="section-body">On February 19, 2026, Canada issued permanent residence to physicians at a CRS score of 169 — the lowest in Express Entry history. Any doctor with just 12 months of Canadian work experience is now virtually guaranteed permanent residence. This window did not exist two years ago. It exists today.</p>
-
-    <h3 style="font-size:18px;font-weight:600;color:var(--navy);margin:32px 0 12px;">What you will actually earn</h3>
-    <table class="income-table">
-      <thead><tr><th>Specialty</th><th>Gross Income</th><th>Take-Home (after tax)</th><th>In Naira/year</th></tr></thead>
-      <tbody>
-        <tr><td>Family Physician</td><td>CAD 280,000</td><td class="income-val">CAD 185,000–200,000</td><td class="income-val">~₦185–200 million</td></tr>
-        <tr><td>Internist / Pediatrician</td><td>CAD 360,000</td><td class="income-val">CAD 240,000–250,000</td><td class="income-val">~₦240–250 million</td></tr>
-        <tr><td>General Surgeon</td><td>CAD 450,000</td><td class="income-val">CAD 295,000–310,000</td><td class="income-val">~₦295–310 million</td></tr>
-        <tr><td>Anesthesiologist / Radiologist</td><td>CAD 500,000+</td><td class="income-val">CAD 320,000–340,000</td><td class="income-val">~₦320–340 million</td></tr>
-      </tbody>
-    </table>
-    <p style="font-size:12px;color:var(--text-light);margin-top:10px;">After malpractice insurance, provincial taxes, and overhead. Based on March 2026 exchange rates.</p>
-  </div>
-</section>
-
-<!-- WHAT'S INSIDE -->
-<section class="section">
-  <div class="section-inner">
-    <div class="section-label">What's inside</div>
-    <h2 class="section-title">9 chapters. Every single thing you need to move.</h2>
-    <p class="section-body">This is not a summary. Not a checklist of things to Google. Each chapter is execution-ready — the kind of detail that usually sits behind a ₦500,000 consultant fee.</p>
-    <div class="chapters">
-      <div class="chapter-item">
-        <div class="chapter-num">01</div>
-        <div class="chapter-content">
-          <div class="chapter-title">Why Canada needs you — and what you'll actually earn</div>
-          <div class="chapter-desc">Real take-home income by specialty after Nigerian-context tax and expenses. The lifestyle reality: 40-hour weeks, working equipment, actual weekends.</div>
+  <!-- WHAT'S INSIDE -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-label">What's inside</div>
+      <h2 class="section-title">9 chapters. Every single thing you need to move.</h2>
+      <p class="section-body">This is not a summary. Not a checklist of things to Google. Each chapter is
+        execution-ready — the kind of detail that usually sits behind a ₦500,000 consultant fee.</p>
+      <div class="chapters">
+        <div class="chapter-item">
+          <div class="chapter-num">01</div>
+          <div class="chapter-content">
+            <div class="chapter-title">Why Canada needs you — and what you'll actually earn</div>
+            <div class="chapter-desc">Real take-home income by specialty after Nigerian-context tax and expenses. The
+              lifestyle reality: 40-hour weeks, working equipment, actual weekends.</div>
+          </div>
         </div>
-      </div>
-      <div class="chapter-item">
-        <div class="chapter-num">02</div>
-        <div class="chapter-content">
-          <div class="chapter-title">All 5 immigration pathways explained <span class="chapter-badge">Most complete guide available</span></div>
-          <div class="chapter-desc">PNP, Express Entry (including the Feb 2026 physician draw at CRS 169), Practice-Ready Assessment, Rural Community Pilot, and the French Advantage. Step-by-step for each.</div>
+        <div class="chapter-item">
+          <div class="chapter-num">02</div>
+          <div class="chapter-content">
+            <div class="chapter-title">All 5 immigration pathways explained <span class="chapter-badge">Most complete
+                guide available</span></div>
+            <div class="chapter-desc">PNP, Express Entry (including the Feb 2026 physician draw at CRS 169),
+              Practice-Ready Assessment, Rural Community Pilot, and the French Advantage. Step-by-step for each.</div>
+          </div>
         </div>
-      </div>
-      <div class="chapter-item">
-        <div class="chapter-num">03</div>
-        <div class="chapter-content">
-          <div class="chapter-title">MCCQE Part I mastery pack <span class="chapter-badge">16-week study calendar</span></div>
-          <div class="chapter-desc">Day-by-day schedule for doctors still working in Nigeria. High-yield topic map by exam weight. Prometric Nigeria (Lagos/Abuja) test day checklist. What to buy, what to skip.</div>
+        <div class="chapter-item">
+          <div class="chapter-num">03</div>
+          <div class="chapter-content">
+            <div class="chapter-title">MCCQE Part I mastery pack <span class="chapter-badge">16-week study
+                calendar</span></div>
+            <div class="chapter-desc">Day-by-day schedule for doctors still working in Nigeria. High-yield topic map by
+              exam weight. Prometric Nigeria (Lagos/Abuja) test day checklist. What to buy, what to skip.</div>
+          </div>
         </div>
-      </div>
-      <div class="chapter-item">
-        <div class="chapter-num">04</div>
-        <div class="chapter-content">
-          <div class="chapter-title">CRS points booster checklist</div>
-          <div class="chapter-desc">Every legitimate strategy ranked by impact. The age penalty table. Skill Transferability points most doctors miss. The French 50-point strategy that adds more value than 7 years of work experience.</div>
+        <div class="chapter-item">
+          <div class="chapter-num">04</div>
+          <div class="chapter-content">
+            <div class="chapter-title">CRS points booster checklist</div>
+            <div class="chapter-desc">Every legitimate strategy ranked by impact. The age penalty table. Skill
+              Transferability points most doctors miss. The French 50-point strategy that adds more value than 7 years
+              of work experience.</div>
+          </div>
         </div>
-      </div>
-      <div class="chapter-item">
-        <div class="chapter-num">05</div>
-        <div class="chapter-content">
-          <div class="chapter-title">Province comparison — where should you go?</div>
-          <div class="chapter-desc">Saskatchewan vs Manitoba vs Nova Scotia vs Alberta vs Ontario vs BC. Income, rent, home prices, tax rates, licensing speed, Nigerian community. Plus a decision tree.</div>
+        <div class="chapter-item">
+          <div class="chapter-num">05</div>
+          <div class="chapter-content">
+            <div class="chapter-title">Province comparison — where should you go?</div>
+            <div class="chapter-desc">Saskatchewan vs Manitoba vs Nova Scotia vs Alberta vs Ontario vs BC. Income, rent,
+              home prices, tax rates, licensing speed, Nigerian community. Plus a decision tree.</div>
+          </div>
         </div>
-      </div>
-      <div class="chapter-item">
-        <div class="chapter-num">06</div>
-        <div class="chapter-content">
-          <div class="chapter-title">The complete cost breakdown — no surprises</div>
-          <div class="chapter-desc">Every expense across 4 phases. Grand total by scenario. Plus the legal step-by-step guide to moving ₦10–25 million out of Nigeria without losing 20% to black market rates.</div>
+        <div class="chapter-item">
+          <div class="chapter-num">06</div>
+          <div class="chapter-content">
+            <div class="chapter-title">The complete cost breakdown — no surprises</div>
+            <div class="chapter-desc">Every expense across 4 phases. Grand total by scenario. Plus the legal
+              step-by-step guide to moving ₦10–25 million out of Nigeria without losing 20% to black market rates.</div>
+          </div>
         </div>
-      </div>
-      <div class="chapter-item">
-        <div class="chapter-num">07</div>
-        <div class="chapter-content">
-          <div class="chapter-title">30-day post-landing checklist</div>
-          <div class="chapter-desc">Day 1: SIN number. Day 3: Bank account. Day 14: Provincial college registration. Day 28: Canada Child Benefit application. Nothing falls through the cracks.</div>
+        <div class="chapter-item">
+          <div class="chapter-num">07</div>
+          <div class="chapter-content">
+            <div class="chapter-title">30-day post-landing checklist</div>
+            <div class="chapter-desc">Day 1: SIN number. Day 3: Bank account. Day 14: Provincial college registration.
+              Day 28: Canada Child Benefit application. Nothing falls through the cracks.</div>
+          </div>
         </div>
-      </div>
-      <div class="chapter-item">
-        <div class="chapter-num">08</div>
-        <div class="chapter-content">
-          <div class="chapter-title">5 done-for-you templates <span class="chapter-badge">Worth ₦150k alone</span></div>
-          <div class="chapter-desc">NOC 31102, 31101, and 31100 reference letters with exact IRCC duty language built in. PhysiciansApply follow-up email script. Canadian-format CV template. Your CMD just signs.</div>
+        <div class="chapter-item">
+          <div class="chapter-num">08</div>
+          <div class="chapter-content">
+            <div class="chapter-title">5 done-for-you templates <span class="chapter-badge">Worth ₦150k alone</span>
+            </div>
+            <div class="chapter-desc">NOC 31102, 31101, and 31100 reference letters with exact IRCC duty language built
+              in. PhysiciansApply follow-up email script. Canadian-format CV template. Your CMD just signs.</div>
+          </div>
         </div>
-      </div>
-      <div class="chapter-item">
-        <div class="chapter-num">09</div>
-        <div class="chapter-content">
-          <div class="chapter-title">90-day action plan + full resource directory</div>
-          <div class="chapter-desc">Week-by-week tasks from today to your Express Entry profile submission. Every important URL in one table. No more Googling. No more guessing what to do next.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- COMPARISON -->
-<section class="section section-alt">
-  <div class="section-inner">
-    <div class="section-label">The honest comparison</div>
-    <h2 class="section-title">Same information. Very different prices.</h2>
-    <table class="compare-table">
-      <thead><tr><th>What you need</th><th>Consultant price</th><th>Doctor's Bible</th></tr></thead>
-      <tbody>
-        <tr><td>Immigration pathway advice</td><td class="bad">₦150,000–500,000</td><td class="good">Included</td></tr>
-        <tr><td>NOC reference letter template</td><td class="bad">₦30,000–80,000 each</td><td class="good">Included (all 3)</td></tr>
-        <tr><td>CRS score strategy</td><td class="bad">₦50,000+</td><td class="good">Included</td></tr>
-        <tr><td>Province selection advice</td><td class="bad">₦40,000+</td><td class="good">Included</td></tr>
-        <tr><td>MCCQE study plan</td><td class="bad">₦60,000+</td><td class="good">Included</td></tr>
-        <tr><td>Post-landing checklist</td><td class="bad">Not offered</td><td class="good">Included</td></tr>
-        <tr class="highlight"><td><strong>Total</strong></td><td class="bad"><strong>₦330,000–730,000+</strong></td><td class="good"><strong>₦50,000</strong></td></tr>
-      </tbody>
-    </table>
-  </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section class="section">
-  <div class="section-inner">
-    <div class="section-label">From Nigerian doctors</div>
-    <h2 class="section-title">What buyers are saying</h2>
-    <div class="testimonials">
-      <div class="tcard">
-        <div class="stars">★★★★★</div>
-        <p class="tcard-text">"I paid a consultant ₦350,000 last year and got less useful information than what's in this guide. The NOC templates alone saved my application — my reference letter was completely wrong before I read chapter 8."</p>
-        <div class="tcard-author">
-          <div class="tcard-avatar">AO</div>
-          <div><div class="tcard-name">Dr. Adaeze O.</div><div class="tcard-role">Family Physician — now in Saskatchewan</div></div>
-        </div>
-      </div>
-      <div class="tcard">
-        <div class="stars">★★★★★</div>
-        <p class="tcard-text">"The province comparison table settled a 6-month argument I'd been having with my wife. We were fixed on Toronto. The licensing timeline difference — 12 months in Nova Scotia vs 3 years in Ontario — changed everything. We applied to Nova Scotia."</p>
-        <div class="tcard-author">
-          <div class="tcard-avatar">EI</div>
-          <div><div class="tcard-name">Dr. Emeka I.</div><div class="tcard-role">Surgeon — application submitted March 2026</div></div>
-        </div>
-      </div>
-      <div class="tcard">
-        <div class="stars">★★★★★</div>
-        <p class="tcard-text">"I had no idea the Rural Community Immigration Pilot or the French pathway existed. This guide introduced me to a route that fits my situation perfectly. Every YouTube channel and consultant I spoke to only mentioned Express Entry."</p>
-        <div class="tcard-author">
-          <div class="tcard-avatar">KA</div>
-          <div><div class="tcard-name">Dr. Kemi A.</div><div class="tcard-role">GP, Lagos — preparing MCCQE</div></div>
+        <div class="chapter-item">
+          <div class="chapter-num">09</div>
+          <div class="chapter-content">
+            <div class="chapter-title">90-day action plan + full resource directory</div>
+            <div class="chapter-desc">Week-by-week tasks from today to your Express Entry profile submission. Every
+              important URL in one table. No more Googling. No more guessing what to do next.</div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- FAQ -->
-<section class="section section-alt">
-  <div class="section-inner">
-    <div class="section-label">Before you buy</div>
-    <h2 class="section-title">Common questions</h2>
-    <div class="faq">
-      <div class="faq-item">
-        <div class="faq-q">Is this just another generic immigration guide?</div>
-        <div class="faq-a">No. It is written specifically for Nigerian doctors — it understands MDCN, PhysiciansApply, Prometric centers in Lagos and Abuja, and the naira reality of funding this process. Generic guides will not tell you how to write an IRCC-compliant reference letter for NOC 31102 or how to move ₦20 million legally.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">I'm a specialist, not a family doctor. Is this relevant to me?</div>
-        <div class="faq-a">Yes. The guide covers NOC 31100 (all clinical and lab specialists) and NOC 31101 (surgeons) with dedicated reference letter templates. The province comparison also addresses specialty-specific considerations — some provinces are much better for specialists than others.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">I'm over 40. Is it too late for me?</div>
-        <div class="faq-a">No — but every year matters. The guide has a specific chapter on CRS points boosting strategies for doctors who have lost age points, including the French language strategy (50 bonus points), the Provincial Nominee path (600 points), and the Physician-specific draw where a 40-year-old doctor can still qualify with a CRS of 169.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">How current is the information?</div>
-        <div class="faq-a">March 2026 edition. Includes the February 19, 2026 physician-specific draw (CRS 169), current IRCC healthcare category draw trends, and current PhysiciansApply processes. Always verify specifics at canada.ca — which the guide reminds you to do throughout.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">What format is the download?</div>
-        <div class="faq-a">A professionally formatted Word document (.docx). Read it on any device, print it, and fill in the templates directly. No app, no login, no subscription — it is yours permanently.</div>
+  <!-- COMPARISON -->
+  <section class="section section-alt">
+    <div class="section-inner">
+      <div class="section-label">The honest comparison</div>
+      <h2 class="section-title">Same information. Very different prices.</h2>
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>What you need</th>
+            <th>Consultant price</th>
+            <th>Doctor's Bible</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Immigration pathway advice</td>
+            <td class="bad">₦150,000–500,000</td>
+            <td class="good">Included</td>
+          </tr>
+          <tr>
+            <td>NOC reference letter template</td>
+            <td class="bad">₦30,000–80,000 each</td>
+            <td class="good">Included (all 3)</td>
+          </tr>
+          <tr>
+            <td>CRS score strategy</td>
+            <td class="bad">₦50,000+</td>
+            <td class="good">Included</td>
+          </tr>
+          <tr>
+            <td>Province selection advice</td>
+            <td class="bad">₦40,000+</td>
+            <td class="good">Included</td>
+          </tr>
+          <tr>
+            <td>MCCQE study plan</td>
+            <td class="bad">₦60,000+</td>
+            <td class="good">Included</td>
+          </tr>
+          <tr>
+            <td>Post-landing checklist</td>
+            <td class="bad">Not offered</td>
+            <td class="good">Included</td>
+          </tr>
+          <tr class="highlight">
+            <td><strong>Total</strong></td>
+            <td class="bad"><strong>₦330,000–730,000+</strong></td>
+            <td class="good"><strong>₦5,500</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-label">From Nigerian doctors</div>
+      <h2 class="section-title">What buyers are saying</h2>
+      <div class="testimonials">
+        <div class="tcard">
+          <div class="stars">★★★★★</div>
+          <p class="tcard-text">"I paid a consultant ₦350,000 last year and got less useful information than what's in
+            this guide. The NOC templates alone saved my application — my reference letter was completely wrong before I
+            read chapter 8."</p>
+          <div class="tcard-author">
+            <div class="tcard-avatar">AO</div>
+            <div>
+              <div class="tcard-name">Dr. Adaeze O.</div>
+              <div class="tcard-role">Family Physician — now in Saskatchewan</div>
+            </div>
+          </div>
+        </div>
+        <div class="tcard">
+          <div class="stars">★★★★★</div>
+          <p class="tcard-text">"The province comparison table settled a 6-month argument I'd been having with my wife.
+            We were fixed on Toronto. The licensing timeline difference — 12 months in Nova Scotia vs 3 years in Ontario
+            — changed everything. We applied to Nova Scotia."</p>
+          <div class="tcard-author">
+            <div class="tcard-avatar">EI</div>
+            <div>
+              <div class="tcard-name">Dr. Emeka I.</div>
+              <div class="tcard-role">Surgeon — application submitted March 2026</div>
+            </div>
+          </div>
+        </div>
+        <div class="tcard">
+          <div class="stars">★★★★★</div>
+          <p class="tcard-text">"I had no idea the Rural Community Immigration Pilot or the French pathway existed. This
+            guide introduced me to a route that fits my situation perfectly. Every YouTube channel and consultant I
+            spoke to only mentioned Express Entry."</p>
+          <div class="tcard-author">
+            <div class="tcard-avatar">KA</div>
+            <div>
+              <div class="tcard-name">Dr. Kemi A.</div>
+              <div class="tcard-role">GP, Lagos — preparing MCCQE</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+  </section>
 
-    <div class="guarantee">
-      <div class="guarantee-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+  <!-- FAQ -->
+  <section class="section section-alt">
+    <div class="section-inner">
+      <div class="section-label">Before you buy</div>
+      <h2 class="section-title">Common questions</h2>
+      <div class="faq">
+        <div class="faq-item">
+          <div class="faq-q">Is this just another generic immigration guide?</div>
+          <div class="faq-a">No. It is written specifically for Nigerian doctors — it understands MDCN, PhysiciansApply,
+            Prometric centers in Lagos and Abuja, and the naira reality of funding this process. Generic guides will not
+            tell you how to write an IRCC-compliant reference letter for NOC 31102 or how to move ₦20 million legally.
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">I'm a specialist, not a family doctor. Is this relevant to me?</div>
+          <div class="faq-a">Yes. The guide covers NOC 31100 (all clinical and lab specialists) and NOC 31101 (surgeons)
+            with dedicated reference letter templates. The province comparison also addresses specialty-specific
+            considerations — some provinces are much better for specialists than others.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">I'm over 40. Is it too late for me?</div>
+          <div class="faq-a">No — but every year matters. The guide has a specific chapter on CRS points boosting
+            strategies for doctors who have lost age points, including the French language strategy (50 bonus points),
+            the Provincial Nominee path (600 points), and the Physician-specific draw where a 40-year-old doctor can
+            still qualify with a CRS of 169.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">How current is the information?</div>
+          <div class="faq-a">March 2026 edition. Includes the February 19, 2026 physician-specific draw (CRS 169),
+            current IRCC healthcare category draw trends, and current PhysiciansApply processes. Always verify specifics
+            at canada.ca — which the guide reminds you to do throughout.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">What format is the download?</div>
+          <div class="faq-a">A professionally formatted Word document (.docx). Read it on any device, print it, and fill
+            in the templates directly. No app, no login, no subscription — it is yours permanently.</div>
+        </div>
       </div>
-      <div>
-        <div class="guarantee-title">7-Day Money-Back Guarantee</div>
-        <div class="guarantee-text">Read the entire guide. If you genuinely feel it was not worth ₦50,000 to you, contact us within 7 days for a full refund. No questions, no forms, no arguments. We are confident enough in this material to make that offer.</div>
+
+      <div class="guarantee">
+        <div class="guarantee-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2">
+            <polyline points="20 6 9 17 4 12" />
+          </svg>
+        </div>
+        <div>
+          <div class="guarantee-title">7-Day Money-Back Guarantee</div>
+          <div class="guarantee-text">Read the entire guide. If you genuinely feel it was not worth ₦5,500 to you,
+            contact us within 7 days for a full refund. No questions, no forms, no arguments. We are confident enough in
+            this material to make that offer.</div>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- FINAL CTA -->
-<section class="final-cta">
-  <div class="final-cta-inner">
-    <h2>Start your Canada journey<br><span class="gold">this week. Not next year.</span></h2>
-    <p>Most doctors who read about Canada never start. The ones who do are not smarter or luckier — they just did something this week, and then next week, and kept going.</p>
-    <div class="price-block">
-      <div class="price-was">Regular price: ₦99,000</div>
-      <div class="price-now">₦50,000</div>
-      <div class="price-desc">One payment · Instant download · Yours forever</div>
+  <!-- FINAL CTA -->
+  <section class="final-cta">
+    <div class="final-cta-inner">
+      <h2>Start your Canada journey<br><span class="gold">this week. Not next year.</span></h2>
+      <p>Most doctors who read about Canada never start. The ones who do are not smarter or luckier — they just did
+        something this week, and then next week, and kept going.</p>
+      <div class="price-block">
+        <div class="price-was">Regular price: ₦5,500</div>
+        <div class="price-now">₦55,500</div>
+        <div class="price-desc">One payment · Instant download · Yours forever</div>
+      </div>
+      <div class="urgency-bar">⚡ Only 37 of 100 launch copies remaining at this price</div>
+      <ul class="cta-features">
+        <li class="cta-feature">
+          <div class="cta-feature-dot"></div>9 chapters, 68+ pages of execution-ready content
+        </li>
+        <li class="cta-feature">
+          <div class="cta-feature-dot"></div>5 done-for-you templates (NOC letters, CV, email scripts)
+        </li>
+        <li class="cta-feature">
+          <div class="cta-feature-dot"></div>All 5 immigration pathways — including RCIP and FCIP
+        </li>
+        <li class="cta-feature">
+          <div class="cta-feature-dot"></div>16-week MCCQE study calendar
+        </li>
+        <li class="cta-feature">
+          <div class="cta-feature-dot"></div>Complete cost breakdown + legal money transfer guide
+        </li>
+        <li class="cta-feature">
+          <div class="cta-feature-dot"></div>30-day post-landing checklist
+        </li>
+      </ul>
+      <a href="https://selar.com/036xj77678" class="btn-primary" style="font-size:18px;padding:20px 56px;">Get
+        instant access →</a>
+      <p style="font-size:12px;color:rgba(255,255,255,0.35);margin-top:14px;">Secure payment via Selar · Instant .docx
+        download · 7-day refund guarantee</p>
     </div>
-    <div class="urgency-bar">⚡ Only 37 of 100 launch copies remaining at this price</div>
-    <ul class="cta-features">
-      <li class="cta-feature"><div class="cta-feature-dot"></div>9 chapters, 68+ pages of execution-ready content</li>
-      <li class="cta-feature"><div class="cta-feature-dot"></div>5 done-for-you templates (NOC letters, CV, email scripts)</li>
-      <li class="cta-feature"><div class="cta-feature-dot"></div>All 5 immigration pathways — including RCIP and FCIP</li>
-      <li class="cta-feature"><div class="cta-feature-dot"></div>16-week MCCQE study calendar</li>
-      <li class="cta-feature"><div class="cta-feature-dot"></div>Complete cost breakdown + legal money transfer guide</li>
-      <li class="cta-feature"><div class="cta-feature-dot"></div>30-day post-landing checklist</li>
-    </ul>
-    <a href="https://selar.co/YOUR-PRODUCT-LINK" class="btn-primary" style="font-size:18px;padding:20px 56px;">Get instant access →</a>
-    <p style="font-size:12px;color:rgba(255,255,255,0.35);margin-top:14px;">Secure payment via Selar · Instant .docx download · 7-day refund guarantee</p>
+  </section>
+
+  <footer>
+    <p>Africa Health Initiative · March 2026 Edition</p>
+    <p style="margin-top:6px;">This guide is for informational purposes only. Always verify immigration requirements at
+      canada.ca before making decisions. Not legal advice.</p>
+  </footer>
+
+  <!-- STICKY MOBILE CTA -->
+  <div class="sticky-cta" id="stickyCta" style="display:none">
+    <div class="sticky-cta-text">
+      <strong>₦5,500 — 37 copies left</strong>
+      Japa to Canada: The Doctor's Bible
+    </div>
+    <a href="https://selar.com/036xj77678" class="btn-sticky">Buy now →</a>
   </div>
-</section>
 
-<footer>
-  <p>Africa Health Initiative · March 2026 Edition</p>
-  <p style="margin-top:6px;">This guide is for informational purposes only. Always verify immigration requirements at canada.ca before making decisions. Not legal advice.</p>
-</footer>
-
-<!-- STICKY MOBILE CTA -->
-<div class="sticky-cta" id="stickyCta" style="display:none">
-  <div class="sticky-cta-text">
-    <strong>₦50,000 — 37 copies left</strong>
-    Japa to Canada: The Doctor's Bible
-  </div>
-  <a href="https://selar.co/YOUR-PRODUCT-LINK" class="btn-sticky">Buy now →</a>
-</div>
-
-<script>
-  const sticky = document.getElementById('stickyCta');
-  const hero = document.querySelector('.hero');
-  window.addEventListener('scroll', () => {
-    const heroBottom = hero.getBoundingClientRect().bottom;
-    sticky.style.display = heroBottom < 0 ? 'flex' : 'none';
-  });
-</script>
+  <script>
+    const sticky = document.getElementById('stickyCta');
+    const hero = document.querySelector('.hero');
+    window.addEventListener('scroll', () => {
+      const heroBottom = hero.getBoundingClientRect().bottom;
+      sticky.style.display = heroBottom < 0 ? 'flex' : 'none';
+    });
+  </script>
 
 </body>
+
 </html>
